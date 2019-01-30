@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <H1>This page verify If your Bank's card valid</H1>
+    <H2>and generate Ethereum address for you, based on your card number</H2>
+    <title>Bank's card validator</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" type="image/png" href="favicon.ico" />
+    </head>
+<body>
+<hr>
+<br/>
+<br/>
+<br/>
+<h1 class="headTitle">Input your card number</h1>
+    <form action="/" method="post">
+          <table class="inputPart">
+                <tr>
+                    <td ></td>
+                    <td >
+                        Card: <input style="font-size:20px;" autofocus name="A" type="text" id="cardValue" placeholder="Please input data here" size="32" >
+                        <br/>
+                        <br/>
+                        <br/>
+                        <input type="submit" value="Submit"> </td>
+                    <td ></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><h1>Your result is:</h1></td>
+                    <td></td>
+                </tr>
+                 <tr>
+                     <td></td>
+                     <td><input style="font-size:20px;"  readonly type="text" id="cardValueRes" value="{answerValue}" size="47"></td>
+                     <td></td>
+                 </tr>
+                 <tr>
+                    <td></td>
+                    <td><h1>Your Ethereum wallet address is:</h1></td>
+                    <td></td>
+                </tr>
+                 <tr>
+                     <td></td>
+                     <td><input style="font-size:20px;"  readonly type="text" id="cardEthereumRes" value="{EthereumAddress}" size="47"></td>
+                     <td></td>
+                 </tr>
+          </table>
+    </form>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div class="links-text">
+    <a href="/About" target="_self">To About</a> 
+    <a href="/PrevResult" target="_self">Show All Previous results</a> 
+    </div>
+</body>
+</html>

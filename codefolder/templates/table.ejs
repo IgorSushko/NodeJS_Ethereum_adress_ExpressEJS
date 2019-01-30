@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <H1>All data from DB</H1>
+    <title>Bank's card validator</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" type="image/png" href="favicon.ico" />
+    </head>
+<body>
+<hr>
+<br/>
+<br/>
+<br/>
+      <table class="EJSviewHead">
+            <tr>
+                    <td>ID</td>
+                    <td>Cardnumber</td>
+                    <td>Result</td>
+                    <td>TimeStamp</td>
+                    <td>EthereumWalletAddress</td>
+              </tr>
+      </table>
+      <table class="EJSview">
+              
+                <% for(let i = 0; i < data.length; i++) { %>
+                    <% date = new Date(data[i].timeStamp) %>
+                <tr>
+                    
+                    <td><%= data[i].id %></td>
+                    <td><%= data[i].cardnumber %></td>
+                    <td><%= data[i].result %></td>
+                    <td><%= date.toString() %></td>
+                    <td><%= data[i].comments %></td>
+                </tr>
+                
+                <% } %>
+          </table>
+    
+    <div class="links-text">
+    <a href="/" target="_self">Back to Main page</a> 
+    </div>
+</body>
+</html>

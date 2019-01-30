@@ -1,0 +1,29 @@
+version: '2'
+services:
+  db_icoapi:
+    image: mysql:5.7
+    container_name: dbtestn
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: nicecti1!
+      MYSQL_DATABASE: testmysql
+      MYSQL_USER: igor
+      MYSQL_PASSWORD: nicecti1!
+      LANG: C.UTF-8
+      TIMEZONE: UTC
+    volumes:
+    - ./sql:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306" 
+  micro:
+    image: microign
+    container_name: microign
+    restart: always
+    ports:
+      - "62000:8080"
+    volumes:
+       - ./logs/:/root/.pm2/logs/
+       - ./codefolder/:/usr/codefolder/
+    environment:
+      LANG: C.UTF-8
+    
