@@ -1,5 +1,11 @@
 const fs = require('fs');
 
+
+/**
+ * @param {String} showingResult
+ * @param {String} number
+ * @returns {void} Write data to log file in JSON format
+ */
 module.exports.saveToLogFile = (showingResult, number) => {
   const currentTime = Date.now();
   const jsonObj = {

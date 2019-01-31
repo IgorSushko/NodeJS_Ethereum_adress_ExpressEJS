@@ -4,6 +4,7 @@ module.paths.push('/usr/lib/node_modules');
 const Wallet = require('ethereumjs-wallet');
 var EthUtil = require('ethereumjs-util');
 
+// Generate pseudorandom part that based on CardNumber
 function makeBankRandom(bankCardNumber) {
   const bankCardNumberStr = bankCardNumber.toString();
   const bankValue2 = bankCardNumberStr.split('').reverse().join('');
@@ -11,6 +12,10 @@ function makeBankRandom(bankCardNumber) {
   return bankSum;
 }
 
+/**
+ * @param {String} bankCardNumber
+ * @returns {String} WalleteAddress
+ */
 module.exports.generateWalleteAddress = (bankCardNumber) => {
 
   const randomBytes = makeBankRandom(bankCardNumber);

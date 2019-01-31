@@ -1,5 +1,11 @@
 // const cardValue = 4532015112830366;4149497848235141
 // const cardValue = 4149497848235141;
+
+
+/**
+ * @param {String} cardValue
+ * @returns {bool} Retrurns result card valid or not
+ */
 module.exports.luhnByIs = (cardValue) => {
   const arr = cardValue.toString().split('');
   let summ = 0;
