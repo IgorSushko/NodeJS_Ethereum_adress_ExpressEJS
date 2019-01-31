@@ -39,8 +39,9 @@ app.get('/PrevResult', (req, res, next) => {
 
 app.get('/', (req, res, next) => {
   console.log('In the middleware!');
-  const pathIndex = path.join(__dirname, 'templates', 'index.html');
-  res.sendFile(pathIndex);
+  res.render('table');
+  //const pathIndex = path.join(__dirname, 'templates', 'index.html');
+  //res.sendFile(pathIndex);
   //next(); // Allows the request to continue to the next middleware in line
 });
 

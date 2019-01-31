@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" type="image/png" href="favicon.ico" />
+    <script type="text/javascript" src="regexpTest.js"></script>
     </head>
 <body>
 <hr>
@@ -14,12 +15,12 @@
 <br/>
 <br/>
 <h1 class="headTitle">Input your card number</h1>
-    <form action="/" method="post">
+    <form name="myForm"  onsubmit="return validateForm()" action="/" method="post">
           <table class="inputPart">
                 <tr>
                     <td ></td>
                     <td >
-                        Card: <input style="font-size:20px;" autofocus name="A" type="text" id="cardValue" placeholder="Please input data here" size="32" >
+                        Card: <input  name="fname" style="font-size:20px;" autofocus name="A" type="text" id="cardValue" placeholder="Please input data here" size="32" >
                         <br/>
                         <br/>
                         <br/>
