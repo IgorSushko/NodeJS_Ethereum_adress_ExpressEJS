@@ -20,7 +20,7 @@ connection.connect((err) => {
  * @returns {string} results
  */
 module.exports.readFromDb = () => {
-  connection.query('SELECT * FROM tblLuhnResult1', (error, results) => {
+  connection.query('SELECT * FROM tblLuhnResult', (error, results) => {
     if (error) throw error;
     results.forEach((result) => {
       console.log(result);
@@ -30,7 +30,7 @@ module.exports.readFromDb = () => {
   });
 };
 module.exports.readFromDbCorrect = () => new Promise((resolve, reject) => {
-  connection.query('SELECT * FROM tblLuhnResult1', (error, results) => {
+  connection.query('SELECT * FROM tblLuhnResult', (error, results) => {
     if (error) {
       reject(error);
     }
@@ -45,8 +45,8 @@ module.exports.readFromDbCorrect = () => new Promise((resolve, reject) => {
  * @returns {void}
  */
 module.exports.writeToDb = (Rcardnumber, Rresult, Rcomments = '') => {
-  const RtimeStamp = Date.now();
-  connection.query('INSERT INTO tblLuhnResult1 (cardnumber, result,timeStamp,comments) VALUES (?,?,?,?)', [Rcardnumber, Rresult, RtimeStamp, Rcomments], (error) => {
+  //timeStamp too simular field name to type name TIMESTAMP https://dev.mysql.com/doc/refman/5.5/en/datetime.html
+  connection.query('INSERT INTO tblLuhnResult (cardnumber, result, comments) VALUES (?, ?, ?)', [Rcardnumber, Rresult, Rcomments], (error) => {
     if (error) throw error;
     // only here will end
     // but without promise will not wait

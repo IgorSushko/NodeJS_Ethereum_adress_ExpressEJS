@@ -17,14 +17,15 @@ function makeBankRandom(bankCardNumber) {
  * @returns {String} WalleteAddress
  */
 module.exports.generateWalleteAddress = (bankCardNumber) => {
-
+  if (!bankCardNumber) throw new Error('Plz check card number');
   const randomBytes = makeBankRandom(bankCardNumber);
+  if (!randomBytes) throw new Error('Plz check card number randomization');
   const privateKeyBuffer = EthUtil.toBuffer(randomBytes.toString('hex'));
   const wallet = Wallet.fromPrivateKey(privateKeyBuffer);
 
   const publicKey = wallet.getPublicKeyString();
   console.log(publicKey);
   const address = wallet.getAddressString();
-  console.log('igorSu Adress :'+ address);
+  console.log('igorSu Address :'+ address);
   return address;
 };

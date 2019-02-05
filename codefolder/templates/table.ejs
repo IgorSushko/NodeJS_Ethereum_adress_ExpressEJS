@@ -22,23 +22,23 @@
               </tr>
       </table>
       <table class="EJSview">
-              
+
                 <% for(let i = 0; i < data.length; i++) { %>
-                    <% date = new Date(data[i].timeStamp) %>
+                    <% date = new Date(data[i].created) %>
                 <tr>
-                    
+
                     <td><%= data[i].id %></td>
                     <td><%= data[i].cardnumber %></td>
                     <td><%= data[i].result %></td>
                     <td><%= date %></td>
                     <td><%= data[i].comments %></td>
                 </tr>
-                
+
                 <% } %>
           </table>
-    
+
     <div class="links-text">
-    <a href="/" target="_self">Back to Main page</a> 
+    <a href="/" target="_self">Back to Main page</a>
     </div>
 </body>
 </html>

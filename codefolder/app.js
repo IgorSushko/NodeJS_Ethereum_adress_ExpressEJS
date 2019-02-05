@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const mysqltest = require('./src/workWithMySql.js');
 const extnote = require('./src/operations.js');
 const logfile = require('./src/workWithJson.js');
-const etheriumtest = require('./src/workWithEthereum.js');
+const ethereumtest = require('./src/workWithEthereum.js');
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -17,9 +17,11 @@ async function getRecords() {
   const myData = [];
   const tempData = await mysqltest.readFromDbCorrect();
   tempData.forEach((result) => {
-    myData.push(result); })
+    myData.push(result);
+  });
   return myData;
 }
+
 app.use(bodyParser.urlencoded({extended: false}));
 // Required to all static files.
 app.use(express.static('templates'));
@@ -48,11 +50,11 @@ app.get('/', (req, res, next) => {
 app.post('/', (req, res, next) => {
   const bodyReq = JSON.stringify(req.body);
   const [showingResult, number] = extnote.parseAndCheckInput(bodyReq);
-  const walletAdress = etheriumtest.generateWalleteAddress(number);
+  const walletAddress = ethereumtest.generateWalleteAddress(number);
   console.log('In the middleware Post!');
-  res.render('index', { dataCard: showingResult, EthereumAddress: walletAdress });
+  res.render('index', { dataCard: showingResult, EthereumAddress: walletAddress });
   logfile.saveToLogFile(showingResult, number);
-  mysqltest.writeToDb(number, showingResult, walletAdress);
+  mysqltest.writeToDb(number, showingResult, walletAddress);
  // next(); // Allows the request to continue to the next middleware in line
 });
 // 404 section

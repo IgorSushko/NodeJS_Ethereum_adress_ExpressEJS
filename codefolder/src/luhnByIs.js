@@ -13,7 +13,7 @@ module.exports.luhnByIs = (cardValue) => {
   for (let i = 0; i < arr.length; i++) {
     arr[i] = parseInt(arr[i], 10);
   }
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0, ic = arr.length; i < ic; i++) {
     if (i % 2 === 0) {
       arr[i] *= 2;
       if (arr[i] > 9) {
